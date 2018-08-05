@@ -1,0 +1,80 @@
+#include<conio.h>
+#include<stdio.h>
+#include<process.h>
+#include<stdlib.h>
+
+void push();
+void pop();
+void display();
+int max = 10;
+int arr[10];
+int top=-1;
+void main()
+{
+int choice;
+clrscr();
+while(choice)
+{
+printf("\t\t\n*** Stack Menu***\n\n");
+printf("\t\t\n\n 1.Push\n 2. Pop\n 3.Display\n 4. Exit\n\n");
+scanf("%d",&choice);
+switch(choice)
+{
+case 1: push();
+	break;
+case 2: pop();
+	break;
+case 3: display();
+	break;
+case 4: exit(0);
+
+default: printf("Please Enter A Correct Choice \\ Wrong Choice");
+		}
+	}
+getch();
+}
+void push()
+{
+int val;
+if(top == max-1)
+{
+printf("\t\n\n Stack is Full \n\n");
+}
+else
+{
+printf("\t\n\n Enter the element which you want to store \n\n");
+scanf("%d",&val);
+top=top+1;
+arr[top]=val;
+	}
+}
+void pop()
+{
+if(top == -1)
+{
+	printf("\t\n\n Stack is Empty \n\n");
+}
+else
+{
+	printf("%d is pop from the stack",arr[top]);
+	top=top-1;
+}
+}
+void display()
+{
+int i;
+if(top == -1)
+printf("None of Element in the Stack");
+else
+{
+for(i=top;i>=0;--i)
+printf("%d\t",arr[i]);
+}
+}
+
+
+
+
+
+
+
