@@ -1,0 +1,32 @@
+<// program of Selection_sort **************>
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+	int i,j,arr[100],n,temp;
+	clrscr();
+	printf("\t\t\n Enter the Size of array \n\n");
+	scanf("%d",&n);
+	printf("\t\t\n Enter the element of array \n\n");
+	for(i=0;i<n;i++)
+	{
+	scanf("%d",&arr[i]);
+	}
+	for(i=0;i<n;i++)
+	{
+		j=i;
+		while(j>0 && arr[j-1]>arr[j])
+		{
+		temp=arr[j];
+		arr[j]=arr[j-1];
+		arr[j-1]=temp;
+		j--;
+		}
+	}
+	printf("\t\t\n Sorted list in ascending order \n\n ");
+	for(i=0;i<n;i++)
+	{
+	printf("%d\t",arr[i]);
+	}
+	getch();
+}
