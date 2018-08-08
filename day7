@@ -1,0 +1,109 @@
+// How To Make a Notepad in C# //
+
+// code for  open file //
+
+ OpenFileDialog dlg = new OpenFileDialog();
+
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string fileName;
+                fileName = dlg.FileName;
+                if (File.Exists(fileName) == true)
+                {
+                    StreamReader objreader = new StreamReader(fileName);
+                    richTextBox1.Text = objreader.ReadToEnd();
+                    objreader.Close();
+                    isFileAlreadySaved = true;
+                    isFileDirty = false;
+                    currOpenFileName = dlg.FileName;
+// code for save as file//
+SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*|Save As PDF (*.pdf)|*.pdf|Save As MsWord (*.docx)|*.docx";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                string path = saveFileDialog1.FileName;
+                byte[] plainDataArray = ASCIIEncoding.ASCII.GetBytes(richTextBox1.Text);
+                using (var fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write))
+                {
+                    fileStream.Write(plainDataArray, 0, plainDataArray.GetLength(0));
+
+                }
+                this.Text = Path.GetFileName(saveFileDialog1.FileName) + " NotePad";
+ 
+// code for open new file //
+
+ Form1 f = new Form1();
+            f.Show();
+
+// code for exit application //
+
+ Application.Exit();  <//this code for direct exit form the application>
+
+
+<//this code is  use for given a warning message and the exit//>            
+
+		DialogResult result = MessageBox.Show("Do you wanna do something?", "Warning",
+MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+                SaveFileDialog sv = new SaveFileDialog(); sv.Filter = "Text Documents(*.txt)|*.txt|All Files(*.*)|*.*"; if (sv.ShowDialog() == DialogResult.OK) richTextBox1.SaveFile(sv.FileName, RichTextBoxStreamType.PlainText); this.Text = sv.FileName;
+                Application.Exit();
+            }
+            else if (result == DialogResult.Cancel)
+            {
+
+            }
+ 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+       
+        {
+            isFileAlreadySaved = false;
+            isFileDirty = false;
+            currOpenFileName = "";
+
+// How to exit form the opne form not application
+
+ Form1 f = new Form1();
+this.Close();
+
+// How to clear the textbox
+
+
+ richTextBox1.Clear();
+
+//How to open new page
+
+  Form1 f = new Form1();
+            f.Show();
+
+
+//  code for save
+
+
+      
+            if (isFileAlreadySaved)
+            {
+                if (Path.GetExtension(currOpenFileName) == ".rtf")
+                    richTextBox1.SaveFile(currOpenFileName, RichTextBoxStreamType.RichText);
+
+                if (Path.GetExtension(currOpenFileName) == ".txt")
+                    richTextBox1.SaveFile(currOpenFileName, RichTextBoxStreamType.PlainText);
+                isFileDirty = false;
+ 
+
+                       
+
