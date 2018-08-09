@@ -1,0 +1,89 @@
+<How to create a Notepad>
+
+// code for copy a text
+
+ private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Copy();
+        }
+
+// code for paste a text
+
+ private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Paste();
+        }
+
+// code for cut a text
+
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Cut();
+        }
+
+
+// code for select all text
+
+ private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectAll();
+        }
+
+
+// code for undo 
+
+  private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Undo();
+
+
+        }
+// code for redo
+
+   private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+
+        {
+            richTextBox1.Redo();
+        }
+
+// code for change font size
+
+ private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FontDialog dlg = new FontDialog();
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                richTextBox1.SelectionFont = new Font(dlg.Font.Name, dlg.Font.Size, FontStyle.Bold);
+            }
+	
+
+        }
+// code change font color
+
+ private void colorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog dlg = new ColorDialog();
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+
+                richTextBox1.SelectionColor = dlg.Color;
+            }
+        }
+
+// code for change background color
+
+  private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog cr = new ColorDialog();
+            if (cr.ShowDialog() == DialogResult.OK) 
+            { 
+                richTextBox1.BackColor = cr.Color;
+            }
+
+        }
+
+
+
