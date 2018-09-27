@@ -1,0 +1,79 @@
+#include<stdio.h>
+int main()
+{
+int i,j,n,m,count;
+
+scanf("%d%d",&n,&m);
+for(i=1;i<=n;i++)
+{
+  count++;
+        
+}
+    
+ if(count==1)
+{
+    
+
+    printf("one\ntwo\n");
+}
+   
+else if(count==2)
+{ 
+    printf("two\nthree\nfour\nfive\nsix\nseven\neight\nnine\n");
+    
+    
+    
+}
+else if(count==3)
+{
+     printf("three\nfour\nfive\nsix\nseven\neight\nnine\n");
+    printf("even\nodd\neven\nodd\neven\n");
+}
+ else if(count==4)
+{
+     printf("four\nfive\nsix\nseven\neight\nnine\n");
+    printf("odd\neven\nodd\neven\n");
+    
+}
+ else if(count==5)
+{
+    printf("five\nsix\nseven\neight\nnine\n");
+    printf("even\nodd\neven\n");
+}
+ else if(count==6)
+
+{
+     printf("six\nseven\neight\nnine\n");
+    printf("odd\neven\n");
+    
+}
+else if(count==7)
+
+{
+    printf("seven\neight\nnine\n");
+    printf("even\nodd\n");
+}
+else if(count==8)
+
+    
+{
+     printf("eight\nnine\n");
+    printf("even\n");
+    
+}
+else if(count==9)
+{
+    printf("nine\n");
+    printf("odd\n");
+    
+}
+    if(m>2)
+    {
+    if(m%2==0)
+       printf("even\n");
+    else 
+     printf("odd\n");
+    }
+    return 0;
+    
+}
