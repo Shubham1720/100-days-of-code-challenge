@@ -1,0 +1,32 @@
+The main objective of enum is to define our own data types(Enumerated Data Types).
+Enums are used when we know all possible values at compile time,
+// outside of the class;
+enum Color 
+{ 
+    RED, GREEN, BLUE; 
+} 
+  
+public class Test 
+{ 
+    // Driver method 
+    public static void main(String[] args) 
+    { 
+        Color c1 = Color.RED; 
+        System.out.println(c1); 
+    } 
+}
+//inside of the class
+ 
+ 
+ 
+ public class Test{
+ enum Days{
+ Sunday,Monday,Friday;
+ }
+ public static void main(String args[])
+ {
+ Days d1=Day.Sunday;
+ System.out.println("d1");
+ }
+ }
+ 
